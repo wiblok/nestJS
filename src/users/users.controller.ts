@@ -19,6 +19,7 @@ export class UsersController {
 
   @Post()
   create(@Body() createUserDto: CreateUserDto): Promise<User> {
+    console.log(createUserDto)
     return this.usersService.create(createUserDto);
   }
 
@@ -28,9 +29,9 @@ export class UsersController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get(':username')
-  findOne(@Param('username') username: string): Promise<User> {
-    return this.usersService.findOne(username);
+  @Get(':name')
+  findOne(@Param('name') user: string): Promise<User> {
+    return this.usersService.findOne(user);
   }
 
   @Delete(':id')

@@ -1,13 +1,23 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Blog } from '../blogs/blog.entity';
 
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
+
   @Column()
-  username: string;
+  name: string;
+
+  @Column()
+  email: string;
+
   @Column()
   password: string;
-  @Column({ default: true })
-  isActive: boolean;
+
+  @Column({ nullable: true })
+  profileImage: string;
+
+  @OneToMany(type => Blog, blog => blog.user)
+  blogs: Blog[];
 }

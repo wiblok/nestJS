@@ -17,7 +17,7 @@ async function bootstrap() {
     },
   };
 
-  app.use(cors(corsOptions));
+ // app.use(cors(corsOptions));
   await app.listen(3000);
   console.log(`Application is running on: ${await app.getUrl()}`);
 }
