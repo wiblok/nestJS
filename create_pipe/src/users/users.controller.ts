@@ -13,7 +13,7 @@ import {
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { ForbiddenException } from './exceptions/forbidden.exception';
-import { HttpExceptionFilter } from './filters/http-exception.filter';
+import { HttpExceptionFilter } from './filters/http-exception/http-exception.filter';
 
 @Controller('users')
 @UseFilters(new HttpExceptionFilter())
